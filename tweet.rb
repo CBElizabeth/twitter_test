@@ -19,9 +19,10 @@ def twitter_test(client)
   all_tweets = get_tweets(client)
   total_word_count = get_word_count(all_tweets)
   filtered_tweets = remove_stop_words(all_tweets)
-  identify_most_common_words(filtered_tweets)
-  puts "TOTAL WORD COUNT: #{total_word_count}"
-  puts "WORD COUNT AFTER FILTER: #{filtered_tweets.length}"
+  word_frequencies = identify_most_common_words(filtered_tweets)
+  display_results(total_word_count, word_frequencies)
+  # puts "TOTAL WORD COUNT: #{total_word_count}"
+  # puts "WORD COUNT AFTER FILTER: #{filtered_tweets.length}"
 end
 
 def get_tweets(client)
@@ -47,16 +48,17 @@ end
 
 def remove_stop_words(all_tweets)
   stop_words = YAML.load_file('stop_words.yml')
-  puts "word count before deleting: #{all_tweets.length}"
   all_tweets.delete_if { |word| stop_words["english"].include?(word) }
-  puts "word count after deleting: #{all_tweets.length}"
-  all_tweets
 end
 
 def identify_most_common_words(filtered_tweets)
   filtered_tweets.sort
-  frequencies = filtered_tweets.each_with_object(Hash.new(0)) { |word,count| count[word] += 1 }.sort_by { |word, count| count }.reverse!.take(10)
-  p frequencies
+  filtered_tweets.each_with_object(Hash.new(0)) { |word,count| count[word] += 1 }.sort_by { |word, count| count }.reverse!.take(10)
+end
+
+def display_results(total_word_count, word_frequencies)
+  puts "Total Word Count - #{total_word_count}"
+  word_frequencies.each_with_index { |word, index| puts "#{index + 1}. #{word[0]} - #{word[1]}"}
 end
 
 twitter_test(client)
