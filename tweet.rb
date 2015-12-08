@@ -39,7 +39,7 @@ def get_tweets(client)
 end
 
 def parse_tweet(text)
-  text.gsub(/[^0-9A-Za-z' #@]/, '').downcase.split(' ')
+  text.gsub(/[^\w+' #@\/:.-]/, '').downcase.split(' ')
 end
 
 def get_word_count(all_tweets)
@@ -47,8 +47,10 @@ def get_word_count(all_tweets)
 end
 
 def remove_stop_words(all_tweets)
-  stop_words = YAML.load_file('stop_words.yml')
-  all_tweets.delete_if { |word| stop_words["english"].include?(word) }
+  words = all_tweets
+  stop_words = YAML.load_file('stop_words.yml')["english"]
+  stop_words.each { |stop_word| words.delete(stop_word) }
+  words
 end
 
 def identify_most_common_words(filtered_tweets)

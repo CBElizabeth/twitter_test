@@ -51,6 +51,7 @@ english:
   - for
   - from
   - further
+  - get
   - had
   - hadn't
   - hadnt
@@ -97,8 +98,10 @@ english:
   - it's
   - its
   - itself
+  - just
   - let's
   - lets
+  - like
   - me
   - more
   - most
@@ -106,12 +109,12 @@ english:
   - musnt
   - my
   - myself
-  - no
+  - 'no'
   - nor
   - not
   - of
-  - off
-  - on
+  - 'off'
+  - 'on'
   - once
   - only
   - or
@@ -124,6 +127,7 @@ english:
   - over
   - own
   - same
+  - see
   - shan't
   - shant
   - she
@@ -201,6 +205,7 @@ english:
   - why
   - why's
   - whys
+  - will
   - with
   - won't
   - wont
