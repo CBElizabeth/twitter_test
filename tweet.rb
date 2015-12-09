@@ -25,7 +25,7 @@ end
 
 def get_tweets(client)
   all_tweets = Array.new
-  end_time = Time.now + 15
+  end_time = Time.now + 300
   client.sample do |status|
     if status.is_a?(Twitter::Tweet) && status.user.lang == "en"
       parsed_tweet = parse_tweet(status.text)
