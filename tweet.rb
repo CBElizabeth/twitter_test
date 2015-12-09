@@ -21,8 +21,6 @@ def twitter_test(client)
   filtered_tweets = remove_stop_words(all_tweets)
   word_frequencies = identify_most_common_words(filtered_tweets)
   display_results(total_word_count, word_frequencies)
-  # puts "TOTAL WORD COUNT: #{total_word_count}"
-  # puts "WORD COUNT AFTER FILTER: #{filtered_tweets.length}"
 end
 
 def get_tweets(client)
