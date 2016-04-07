@@ -2,10 +2,10 @@ require 'twitter'
 require 'yaml'
 
 client = Twitter::Streaming::Client.new do |config|
-  config.consumer_key        = 'IrCxPhOyEuE5ayk5wyGegEOH8'
-  config.consumer_secret     = 'z3MWJbQ7BbW5QFOltvHX3owNZUQoU9rzmS1GmNjGxc7xgKrsio'
-  config.access_token        = '22286566-yvQKhjd5Fr67BpxeLPrTYvrg4vMGS88ddhQgxBGMM'
-  config.access_token_secret = 'BRCkzo6XzvUztRbxKhsYKj91fCf97Kbup8RPom9oN4tpC'
+  config.consumer_key        = ''
+  config.consumer_secret     = ''
+  config.access_token        = ''
+  config.access_token_secret = ''
 end
 
 # Monkey-patch HTTP::URI; https://github.com/sferik/twitter/issues/709                                                                                                                                                                              
